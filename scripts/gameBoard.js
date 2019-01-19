@@ -16,8 +16,20 @@ function keyDownHandler(e) {
     else if(e.key == "Up" || e.key == "ArrowUp") {
         tank1.dy = -1;
     }
-    else if(e.key == "Down" || e.key == "ArrowDown") {
+    else if(e.keyCode == "Down" || e.key == "ArrowDown") {
         tank1.dy = 1;
+    }
+    if(e.keyCode == 68) {
+        tank2.dx = 1
+    }
+    else if(e.keyCode == 65) {
+        tank2.dx = -1
+    }
+    else if(e.keyCode == 87) {
+        tank2.dy = -1
+    }
+    else if(e.keyCode == 83) {
+        tank2.dy = 1
     }
 }
 
@@ -34,6 +46,19 @@ function keyUpHandler(e) {
     else if(e.key == "Down" || e.key == "ArrowDown") {
         tank1.dy = 0;
     }
+    if(e.keyCode == 68) {
+
+        tank2.dx = 0;
+    }
+    else if(e.keyCode == 65){
+        tank2.dx = -0;
+    }
+    else if(e.keyCode == 87){
+        tank2.dy = 0;
+    }
+    else if(e.keyCode == 83){
+        tank2.dy = 0;
+    }
 }
 
 function setup() {
@@ -43,6 +68,8 @@ function setup() {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   tank1.draw();
+
   tank2.draw();
 }
+
 setInterval(draw, 10);
