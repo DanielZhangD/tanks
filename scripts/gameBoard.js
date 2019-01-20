@@ -12,7 +12,7 @@ let t1y = 0;
 let t2y = 0;
 
 const BULLET_WIDTH = 5;
-const TANK_WIDTH = 10;
+const TANK_WIDTH = 20;
 
 log(tank1);
 log(tank2);

@@ -1,6 +1,6 @@
 class Tank extends GameObject {
   constructor(x, y, colour) {
-    super(x, y, colour, 10);
+    super(x, y, colour, 20);
     this.dx = 0;
     this.dy = 0;
     this.health = 100;
@@ -22,5 +22,15 @@ class Tank extends GameObject {
   move() {
     this.x += this.dx;
     this.y += this.dy;
+    if (this.x > 900) {
+      this.x = 899;
+    } else if (this.x < 0) {
+      this.x = 1;
+    }
+    if (this.y > 600) {
+      this.y = 599;
+    } else if (this.y < 0) {
+      this.y = 1;
+    }
   }
 }
