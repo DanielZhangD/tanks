@@ -19,9 +19,11 @@ document.addEventListener("keyup", keyUpHandler, false);
 function bulletsWork() {
   for (let i = 0; i < bullets1.length; i++) {
     bullets1[i].draw();
+    bullets1[i].collision(tank2);
   }
   for (let i = 0; i < bullets2.length; i++) {
     bullets2[i].draw();
+    bullets2[i].collision(tank1);
   }
 }
 
@@ -95,5 +97,4 @@ function draw() {
   tank2.draw();
   bulletsWork();
 }
-
 setInterval(draw, 10);
