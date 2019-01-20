@@ -13,8 +13,9 @@ class Tank extends GameObject {
       ctx.fillStyle = this.colour;
       ctx.fill();
       ctx.closePath();
-      this.x+= this.dx;
-      this.y+= this.dy;
+    } else {
+      this.x = 10000;
+      this.y = 10000;
     }
   }
 
