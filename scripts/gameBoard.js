@@ -68,6 +68,12 @@ function obstacleWork() {
         bullet.y = 99999;
       }
     });
+    tanks.forEach((tank) => {
+      if (checkCollision(tank, obstacle)) {
+        tank.x -= tank.dx;
+        tank.y -= tank.dy;
+      }
+    });
     obstacle.draw();
   });
 }
@@ -155,7 +161,7 @@ function draw() {
   tank1.draw();
   tank2.draw();
   bulletsWork();
-  obstacleWork(); 
+  obstacleWork();
 }
 
 setInterval(update, 10);
