@@ -1,15 +1,13 @@
-class Bullet {
+class Bullet extends GameObject {
   constructor(x, y, dx, dy, colour) {
-    this.x = x;
-    this.y = y;
+    super(x, y, colour, 5);
     this.dx = dx*2;
     this.dy = dy*2;
-    this.colour = colour;
   }
 
   draw() {
     ctx.beginPath();
-    ctx.arc(this.x, this.y, 5, 0, Math.PI*2);
+    ctx.arc(this.x, this.y, this.diameter, 0, Math.PI*2);
     ctx.fillStyle = this.colour;
     ctx.fill();
     ctx.closePath();

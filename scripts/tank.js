@@ -1,17 +1,15 @@
-class Tank {
+class Tank extends GameObject {
   constructor(x, y, colour) {
-    this.x = x;
-    this.y = y;
+    super(x, y, colour, 10);
     this.dx = 0;
     this.dy = 0;
     this.health = 100;
-    this.colour = colour;
   }
 
   draw() {
     if (this.health > 0) {
       ctx.beginPath();
-      ctx.arc(this.x, this.y, 10, 0, Math.PI * 2);
+      ctx.arc(this.x, this.y, this.diameter, 0, Math.PI * 2);
       ctx.fillStyle = this.colour;
       ctx.fill();
       ctx.closePath();

@@ -30,15 +30,11 @@ function bulletsWork() {
 
 const checkCollision = (bullet) => {
   tanks.forEach((tank) => {
-    if (intersect(bullet, tank)) {
+    if (bullet.intersects(tank)) {
       return true;
     }
   });
   return false;
-};
-
-const intersect = (a, b) => {
-  return !(a.x > (b.x + TANK_WIDTH) || (a.x + BULLET_WIDTH) < b.x || a.y > (b.y + TANK_WIDTH) || (a.y + BULLET_WIDTH) < b.y);
 };
 
 function keyDownHandler(e) {
