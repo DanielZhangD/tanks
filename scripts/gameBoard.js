@@ -5,10 +5,6 @@ const tank1 = new Tank(100,100,"#0095DD");
 const tank2 = new Tank(500,500,"#FF0000");
 let bullets1 = [];
 let bullets2 = [];
-let t1x = 1;
-let t1y = 1;
-let t2x = 1;
-let t2y = 1;
 
 log(tank1);
 log(tank2);
@@ -35,39 +31,32 @@ function keyDownHandler(e) {
     bullets2.push(new Bullet(tank2.x, tank2.y, t2x, t2y, "#FF0000"));
   }
   if (e.key == "Right" || e.key == "ArrowRight") {
-    tank1.dx = 1;
-    t1y = 0;
-    t1x = 1;
+    tank1.dx = 10;
   } else if (e.key == "Left" || e.key == "ArrowLeft") {
-    tank1.dx = -1;
-    t1y = 0;
-    t1x = -1;
+    tank1.dx = -10;
   } else if (e.key == "Up" || e.key == "ArrowUp") {
-    tank1.dy = -1;
-    t1x = 0;
-    t1y = -1;
+    tank1.dy = -10;
   } else if (e.keyCode == "Down" || e.key == "ArrowDown") {
-    tank1.dy = 1;
-    t1x = 0;
-    t1y = 1;
+    tank1.dy = 10;
   }
-  if (e.keyCode == 68) {
-    tank2.dx = 1
-    t2y = 0;
-    t2x = 1;
-  } else if (e.keyCode == 65) {
-    tank2.dx = -1
-    t2y = 0;
-    t2x = -1;
-  } else if (e.keyCode == 87) {
-    tank2.dy = -1
-    t2x = 0;
-    t2y = -1;
-  } else if (e.keyCode == 83) {
-    tank2.dy = 1
-    t2x = 0;
-    t2y = 1
-  }
+  tank1.move();
+  //if (e.keyCode == 68) {
+  //  tank2.dx = 1
+  //  t2y = 0;
+  //  t2x = 1;
+  //} else if (e.keyCode == 65) {
+  //  tank2.dx = -1
+  //  t2y = 0;
+  //  t2x = -1;
+  //} else if (e.keyCode == 87) {
+  //  tank2.dy = -1
+  //  t2x = 0;
+  //  t2y = -1;
+  //} else if (e.keyCode == 83) {
+  //  tank2.dy = 1
+  //  t2x = 0;
+  //  t2y = 1
+  //}
 }
 
 function keyUpHandler(e) {
@@ -97,4 +86,5 @@ function draw() {
   tank2.draw();
   bulletsWork();
 }
-setInterval(draw, 10);
+
+setInterval(draw, 100);

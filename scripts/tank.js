@@ -19,4 +19,9 @@ class Tank {
       this.y+= this.dy;
     }
   }
+
+  move() {
+    this.x += this.dx;
+    this.y += this.dy;
+  }
 }
