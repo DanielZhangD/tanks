@@ -14,4 +14,13 @@ class Bullet extends GameObject {
     this.x+= this.dx;
     this.y+= this.dy;
   }
+
+  collision(tank) {
+    if (this.x + 5 < tank.x + 15 && this.x - 5 > tank.x - 15 &&
+    this.y + 5 < tank.y + 15 && this.y - 5 > tank.y - 15) {
+      tank.health -= 10;
+      this.x = 90000;
+      this.y = 90000;
+    }
+  }
 }

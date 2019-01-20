@@ -17,6 +17,7 @@ document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
 function bulletsWork() {
+<<<<<<< HEAD
   bullets1.forEach((bullet) => {
     // Check if bullet collision
     if (checkCollision(bullet)) {
@@ -26,6 +27,16 @@ function bulletsWork() {
       bullet.draw();
     }
   });
+=======
+  for (let i = 0; i < bullets1.length; i++) {
+    bullets1[i].draw();
+    bullets1[i].collision(tank2);
+  }
+  for (let i = 0; i < bullets2.length; i++) {
+    bullets2[i].draw();
+    bullets2[i].collision(tank1);
+  }
+>>>>>>> master
 }
 
 const checkCollision = (bullet) => {
