@@ -10,6 +10,7 @@ let t1x = 1;
 let t2x = 1;
 let t1y = 0;
 let t2y = 0;
+let obstacles = [];
 
 const BULLET_WIDTH = 5;
 const TANK_WIDTH = 20;
@@ -19,6 +20,12 @@ log(tank2);
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+
+//function createObstacles() {
+  for (var i = 0; i < 5; i++) {
+    obstacles.push(new Obstacle(Math.floor(Math.random() * Math.floor(875)), Math.floor(Math.random() * Math.floor(575)), "#003300"));
+  }
+//}
 
 function bulletsWork() {
   bullets1.forEach((bullet) => {
@@ -44,6 +51,24 @@ function bulletsWork() {
     } else { // Otherwise draw the bullet
       bullet.draw();
     }
+  });
+}
+
+function obstacleWork() {
+  obstacles.forEach((obstacle) => {
+    bullets2.forEach((bullet) =>  {
+      if (checkCollision(bullet, obstacle)) {
+        bullet.x = 99999;
+        bullet.y = 99999;
+      }
+    });
+    bullets1.forEach((bullet) =>  {
+      if (checkCollision(bullet, obstacle)) {
+        bullet.x = 99999;
+        bullet.y = 99999;
+      }
+    });
+    obstacle.draw();
   });
 }
 
@@ -130,6 +155,7 @@ function draw() {
   tank1.draw();
   tank2.draw();
   bulletsWork();
+  obstacleWork(); 
 }
 
 setInterval(update, 10);
